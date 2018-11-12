@@ -9,6 +9,7 @@
 # $ tr -d '\015' < inFile > outFile
 #
 # $ crontab -e
+#    m    H d M w
 #    */10 * * * *    /home/kang/bin/thomson.sh restart
 #
 #    5   * * * *    /home/kang/bin/thomson.sh start
