@@ -235,8 +235,159 @@ rcS.d
 
 ```
 
+iptables
+--------
+- [How To Protect SSH with Fail2Ban on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04 "How To Protect SSH with Fail2Ban on Ubuntu 14.04"):
+```
+kiea@KieaUbun18:~$ sudo iptables -L
+	Chain INPUT (policy ACCEPT)
+	target     prot opt source               destination         
+
+	Chain FORWARD (policy ACCEPT)
+	target     prot opt source               destination         
+
+	Chain OUTPUT (policy ACCEPT)
+	target     prot opt source               destination         
+
+kiea@KieaUbun18:~$ sudo apt update
+	.....
+	
+kiea@KieaUbun18:~$ sudo apt install -y fail2ban
+	패키지 목록을 읽는 중입니다... 완료
+	의존성 트리를 만드는 중입니다       
+	상태 정보를 읽는 중입니다... 완료
+	다음 패키지가 자동으로 설치되었지만 더 이상 필요하지 않습니다:
+	  linux-headers-4.15.0-29 linux-headers-4.15.0-29-generic linux-image-4.15.0-29-generic linux-modules-4.15.0-29-generic
+	  linux-modules-extra-4.15.0-29-generic
+	Use 'sudo apt autoremove' to remove them.
+	다음의 추가 패키지가 설치될 것입니다 :
+	  python3-pyinotify whois
+	제안하는 패키지:
+	  mailx monit sqlite3 python-pyinotify-doc
+	다음 새 패키지를 설치할 것입니다:
+	  fail2ban python3-pyinotify whois
+	0개 업그레이드, 3개 새로 설치, 0개 제거 및 8개 업그레이드 안 함.
+	398 k바이트 아카이브를 받아야 합니다.
+	이 작업 후 2,110 k바이트의 디스크 공간을 더 사용하게 됩니다.
+	받기:1 http://kr.archive.ubuntu.com/ubuntu bionic/universe amd64 fail2ban all 0.10.2-2 [329 kB]
+	받기:2 http://kr.archive.ubuntu.com/ubuntu bionic/main amd64 python3-pyinotify all 0.9.6-1 [24.7 kB]
+	받기:3 http://kr.archive.ubuntu.com/ubuntu bionic/main amd64 whois amd64 5.3.0 [43.7 kB]
+	내려받기 398 k바이트, 소요시간 0초 (1,546 k바이트/초)
+	Selecting previously unselected package fail2ban.
+	(데이터베이스 읽는중 ...현재 200155개의 파일과 디렉터리가 설치되어 있습니다.)
+	Preparing to unpack .../fail2ban_0.10.2-2_all.deb ...
+	Unpacking fail2ban (0.10.2-2) ...
+	Selecting previously unselected package python3-pyinotify.
+	Preparing to unpack .../python3-pyinotify_0.9.6-1_all.deb ...
+	Unpacking python3-pyinotify (0.9.6-1) ...
+	Selecting previously unselected package whois.
+	Preparing to unpack .../archives/whois_5.3.0_amd64.deb ...
+	Unpacking whois (5.3.0) ...
+	fail2ban (0.10.2-2) 설정하는 중입니다 ...
+	Created symlink /etc/systemd/system/multi-user.target.wants/fail2ban.service → /lib/systemd/system/fail2ban.service.
+	Processing triggers for ureadahead (0.100.0-20) ...
+	ureadahead will be reprofiled on next reboot
+	whois (5.3.0) 설정하는 중입니다 ...
+	Processing triggers for systemd (237-3ubuntu10.6) ...
+	Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+	python3-pyinotify (0.9.6-1) 설정하는 중입니다 ...
+
+kiea@KieaUbun18:~$ sudo iptables -L
+	Chain INPUT (policy ACCEPT)
+	target     prot opt source               destination         
+
+	Chain FORWARD (policy ACCEPT)
+	target     prot opt source               destination         
+
+	Chain OUTPUT (policy ACCEPT)
+	target     prot opt source               destination         
+
+kiea@KieaUbun18:~$ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+kiea@KieaUbun18:~$ awk '{ printf "# "; print; }' /etc/fail2ban/jail.conf | sudo tee /etc/fail2ban/jail.local
+
+kiea@KieaUbun18:~$ sudo vim /etc/fail2ban/jail.local
+
+	[DEFAULT]
+	.....
+	ignoreip = 127.0.0.1/8
+	bantime = 600
+	findtime = 600
+	maxretry = 3
+
+	destemail = root@localhost
+	sendername = Fail2Ban
+	mta = sendmail
+
+	action = $(action_)s
+	.....
+
+	[jail_to_enable]
+	......
+	enabled = true
+	......
+	[sshd]
+	enabled = true
+	port = ssh
+	filter = sshd
+	# the length of time between login attempts for maxretry. 
+	findtime = 600
+	# attempts from a single ip before a ban is imposed.
+	maxretry = 5
+	# the number of seconds that a host is banned for.
+	bantime = 3600
+	.....
+
+kiea@KieaUbun18:~$ ls /etc/fail2ban/filter.d
+
+kiea@KieaUbun18:~$ sudo apt-get update
+
+kiea@KieaUbun18:~$ sudo apt-get install nginx sendmail iptables-persistent
+
+kiea@KieaUbun18:~$ sudo service fail2ban stop
+
+>>>>> the below job later
+
+kiea@KieaUbun18:~$ sudo service fail2ban stop
+
+kiea@KieaUbun18:~$ 
+kiea@KieaUbun18:~$ 
+kiea@KieaUbun18:~$ 
+kiea@KieaUbun18:~$ 
+kiea@KieaUbun18:~$ 
+kiea@KieaUbun18:~$ 
+
+kiea@KieaUbun18:~$ sudo systemctl service enable fail2ban
+
+kiea@KieaUbun18:~$ sudo systemctl service start fail2ban
+
+kiea@KieaUbun18:~$ fail2ban-client restart
+
+kiea@KieaUbun18:~$ fail2ban-client status
+
+kiea@KieaUbun18:~$ fail2ban-client status sshd
+
+kiea@KieaUbun18:~$ ls /etc/fail2ban/filter.d
+
+kiea@KieaUbun18:~$ 
+kiea@KieaUbun18:~$ 
+kiea@KieaUbun18:~$ 
+kiea@KieaUbun18:~$ 
+kiea@KieaUbun18:~$ 
+kiea@KieaUbun18:~$ 
+kiea@KieaUbun18:~$ 
+kiea@KieaUbun18:~$ 
+
+```
 
 References
 ----------
+- [How To Protect SSH with Fail2Ban on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04 "How To Protect SSH with Fail2Ban on Ubuntu 14.04"):
 - []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
+- []( ""):
+
+
 .....
