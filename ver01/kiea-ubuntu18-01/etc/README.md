@@ -1,250 +1,237 @@
 /etc
 ====
 ```
-root@KieaUbun18:/etc# du -ka init.d rc*.d
-4	init.d/smbd
-4	init.d/cron
-4	init.d/dns-clean
-4	init.d/network-manager
-4	init.d/unattended-upgrades
-4	init.d/spice-vdagent
-4	init.d/avahi-daemon
-8	init.d/rsync
-4	init.d/saned
-4	init.d/dbus
-4	init.d/kerneloops
-4	init.d/x11-common
-4	init.d/kmod
-8	init.d/alsa-utils
-4	init.d/cups
-4	init.d/gdm3
-4	init.d/grub-common
-4	init.d/uuidd
-4	init.d/bluetooth
-8	init.d/apparmor
-8	init.d/virtualbox
-4	init.d/cups-browsed
-8	init.d/networking
-4	init.d/acpid
-4	init.d/console-setup.sh
-4	init.d/whoopsie
-4	init.d/rsyslog
-4	init.d/pppd-dns
-4	init.d/speech-dispatcher
-4	init.d/plymouth
-4	init.d/hwclock.sh
-8	init.d/udev
-4	init.d/keyboard-setup.sh
-4	init.d/plymouth-log
-4	init.d/samba-ad-dc
-4	init.d/irqbalance
-4	init.d/nmbd
-4	init.d/procps
-4	init.d/ufw
-4	init.d/anacron
-4	init.d/apport
-192	init.d
+kiea@KieaUbun18:/etc$ tree -ap init.d rc*.d
+init.d
+├── [-rwxr-xr-x]  acpid
+├── [-rwxr-xr-x]  alsa-utils
+├── [-rwxr-xr-x]  anacron
+├── [-rwxr-xr-x]  apparmor
+├── [-rwxr-xr-x]  apport
+├── [-rwxr-xr-x]  avahi-daemon
+├── [-rwxr-xr-x]  bluetooth
+├── [-rwxr-xr-x]  console-setup.sh
+├── [-rwxr-xr-x]  cron
+├── [-rwxr-xr-x]  cups
+├── [-rwxr-xr-x]  cups-browsed
+├── [-rwxr-xr-x]  dbus
+├── [-rwxr-xr-x]  dns-clean
+├── [-rwxr-xr-x]  gdm3
+├── [-rwxr-xr-x]  grub-common
+├── [-rwxr-xr-x]  hwclock.sh
+├── [-rwxr-xr-x]  irqbalance
+├── [-rwxr-xr-x]  kerneloops
+├── [-rwxr-xr-x]  keyboard-setup.sh
+├── [-rwxr-xr-x]  kmod
+├── [-rwxr-xr-x]  network-manager
+├── [-rwxr-xr-x]  networking
+├── [-rwxr-xr-x]  nmbd
+├── [-rwxr-xr-x]  plymouth
+├── [-rwxr-xr-x]  plymouth-log
+├── [-rwxr-xr-x]  pppd-dns
+├── [-rwxr-xr-x]  procps
+├── [-rwxr-xr-x]  rsync
+├── [-rwxr-xr-x]  rsyslog
+├── [-rwxr-xr-x]  samba-ad-dc
+├── [-rwxr-xr-x]  saned
+├── [-rwxr-xr-x]  smbd
+├── [-rwxr-xr-x]  speech-dispatcher
+├── [-rwxr-xr-x]  spice-vdagent
+├── [-rwxr-xr-x]  udev
+├── [-rwxr-xr-x]  ufw
+├── [-rwxr-xr-x]  unattended-upgrades
+├── [-rwxr-xr-x]  uuidd
+├── [-rwxr-xr-x]  virtualbox
+├── [-rwxr-xr-x]  whoopsie
+└── [-rwxr-xr-x]  x11-common
+rc0.d
+├── [lrwxrwxrwx]  K01alsa-utils -> ../init.d/alsa-utils
+├── [lrwxrwxrwx]  K01avahi-daemon -> ../init.d/avahi-daemon
+├── [lrwxrwxrwx]  K01bluetooth -> ../init.d/bluetooth
+├── [lrwxrwxrwx]  K01cups-browsed -> ../init.d/cups-browsed
+├── [lrwxrwxrwx]  K01gdm3 -> ../init.d/gdm3
+├── [lrwxrwxrwx]  K01irqbalance -> ../init.d/irqbalance
+├── [lrwxrwxrwx]  K01kerneloops -> ../init.d/kerneloops
+├── [lrwxrwxrwx]  K01networking -> ../init.d/networking
+├── [lrwxrwxrwx]  K01nmbd -> ../init.d/nmbd
+├── [lrwxrwxrwx]  K01plymouth -> ../init.d/plymouth
+├── [lrwxrwxrwx]  K01rsyslog -> ../init.d/rsyslog
+├── [lrwxrwxrwx]  K01samba-ad-dc -> ../init.d/samba-ad-dc
+├── [lrwxrwxrwx]  K01saned -> ../init.d/saned
+├── [lrwxrwxrwx]  K01smbd -> ../init.d/smbd
+├── [lrwxrwxrwx]  K01speech-dispatcher -> ../init.d/speech-dispatcher
+├── [lrwxrwxrwx]  K01spice-vdagent -> ../init.d/spice-vdagent
+├── [lrwxrwxrwx]  K01unattended-upgrades -> ../init.d/unattended-upgrades
+├── [lrwxrwxrwx]  K01uuidd -> ../init.d/uuidd
+└── [lrwxrwxrwx]  K01virtualbox -> ../init.d/virtualbox
+rc1.d
+├── [lrwxrwxrwx]  K01alsa-utils -> ../init.d/alsa-utils
+├── [lrwxrwxrwx]  K01avahi-daemon -> ../init.d/avahi-daemon
+├── [lrwxrwxrwx]  K01bluetooth -> ../init.d/bluetooth
+├── [lrwxrwxrwx]  K01cups -> ../init.d/cups
+├── [lrwxrwxrwx]  K01cups-browsed -> ../init.d/cups-browsed
+├── [lrwxrwxrwx]  K01gdm3 -> ../init.d/gdm3
+├── [lrwxrwxrwx]  K01irqbalance -> ../init.d/irqbalance
+├── [lrwxrwxrwx]  K01kerneloops -> ../init.d/kerneloops
+├── [lrwxrwxrwx]  K01nmbd -> ../init.d/nmbd
+├── [lrwxrwxrwx]  K01rsyslog -> ../init.d/rsyslog
+├── [lrwxrwxrwx]  K01samba-ad-dc -> ../init.d/samba-ad-dc
+├── [lrwxrwxrwx]  K01saned -> ../init.d/saned
+├── [lrwxrwxrwx]  K01smbd -> ../init.d/smbd
+├── [lrwxrwxrwx]  K01speech-dispatcher -> ../init.d/speech-dispatcher
+├── [lrwxrwxrwx]  K01spice-vdagent -> ../init.d/spice-vdagent
+├── [lrwxrwxrwx]  K01ufw -> ../init.d/ufw
+├── [lrwxrwxrwx]  K01uuidd -> ../init.d/uuidd
+├── [lrwxrwxrwx]  K01virtualbox -> ../init.d/virtualbox
+└── [lrwxrwxrwx]  K01whoopsie -> ../init.d/whoopsie
+rc2.d
+├── [lrwxrwxrwx]  S01acpid -> ../init.d/acpid
+├── [lrwxrwxrwx]  S01anacron -> ../init.d/anacron
+├── [lrwxrwxrwx]  S01apport -> ../init.d/apport
+├── [lrwxrwxrwx]  S01avahi-daemon -> ../init.d/avahi-daemon
+├── [lrwxrwxrwx]  S01bluetooth -> ../init.d/bluetooth
+├── [lrwxrwxrwx]  S01console-setup.sh -> ../init.d/console-setup.sh
+├── [lrwxrwxrwx]  S01cron -> ../init.d/cron
+├── [lrwxrwxrwx]  S01cups -> ../init.d/cups
+├── [lrwxrwxrwx]  S01cups-browsed -> ../init.d/cups-browsed
+├── [lrwxrwxrwx]  S01dbus -> ../init.d/dbus
+├── [lrwxrwxrwx]  S01gdm3 -> ../init.d/gdm3
+├── [lrwxrwxrwx]  S01grub-common -> ../init.d/grub-common
+├── [lrwxrwxrwx]  S01irqbalance -> ../init.d/irqbalance
+├── [lrwxrwxrwx]  S01kerneloops -> ../init.d/kerneloops
+├── [lrwxrwxrwx]  S01nmbd -> ../init.d/nmbd
+├── [lrwxrwxrwx]  S01plymouth -> ../init.d/plymouth
+├── [lrwxrwxrwx]  S01rsync -> ../init.d/rsync
+├── [lrwxrwxrwx]  S01rsyslog -> ../init.d/rsyslog
+├── [lrwxrwxrwx]  S01samba-ad-dc -> ../init.d/samba-ad-dc
+├── [lrwxrwxrwx]  S01saned -> ../init.d/saned
+├── [lrwxrwxrwx]  S01smbd -> ../init.d/smbd
+├── [lrwxrwxrwx]  S01speech-dispatcher -> ../init.d/speech-dispatcher
+├── [lrwxrwxrwx]  S01spice-vdagent -> ../init.d/spice-vdagent
+├── [lrwxrwxrwx]  S01unattended-upgrades -> ../init.d/unattended-upgrades
+├── [lrwxrwxrwx]  S01uuidd -> ../init.d/uuidd
+├── [lrwxrwxrwx]  S01virtualbox -> ../init.d/virtualbox
+└── [lrwxrwxrwx]  S01whoopsie -> ../init.d/whoopsie
+rc3.d
+├── [lrwxrwxrwx]  S01acpid -> ../init.d/acpid
+├── [lrwxrwxrwx]  S01anacron -> ../init.d/anacron
+├── [lrwxrwxrwx]  S01apport -> ../init.d/apport
+├── [lrwxrwxrwx]  S01avahi-daemon -> ../init.d/avahi-daemon
+├── [lrwxrwxrwx]  S01bluetooth -> ../init.d/bluetooth
+├── [lrwxrwxrwx]  S01console-setup.sh -> ../init.d/console-setup.sh
+├── [lrwxrwxrwx]  S01cron -> ../init.d/cron
+├── [lrwxrwxrwx]  S01cups -> ../init.d/cups
+├── [lrwxrwxrwx]  S01cups-browsed -> ../init.d/cups-browsed
+├── [lrwxrwxrwx]  S01dbus -> ../init.d/dbus
+├── [lrwxrwxrwx]  S01gdm3 -> ../init.d/gdm3
+├── [lrwxrwxrwx]  S01grub-common -> ../init.d/grub-common
+├── [lrwxrwxrwx]  S01irqbalance -> ../init.d/irqbalance
+├── [lrwxrwxrwx]  S01kerneloops -> ../init.d/kerneloops
+├── [lrwxrwxrwx]  S01nmbd -> ../init.d/nmbd
+├── [lrwxrwxrwx]  S01plymouth -> ../init.d/plymouth
+├── [lrwxrwxrwx]  S01rsync -> ../init.d/rsync
+├── [lrwxrwxrwx]  S01rsyslog -> ../init.d/rsyslog
+├── [lrwxrwxrwx]  S01samba-ad-dc -> ../init.d/samba-ad-dc
+├── [lrwxrwxrwx]  S01saned -> ../init.d/saned
+├── [lrwxrwxrwx]  S01smbd -> ../init.d/smbd
+├── [lrwxrwxrwx]  S01speech-dispatcher -> ../init.d/speech-dispatcher
+├── [lrwxrwxrwx]  S01spice-vdagent -> ../init.d/spice-vdagent
+├── [lrwxrwxrwx]  S01unattended-upgrades -> ../init.d/unattended-upgrades
+├── [lrwxrwxrwx]  S01uuidd -> ../init.d/uuidd
+├── [lrwxrwxrwx]  S01virtualbox -> ../init.d/virtualbox
+└── [lrwxrwxrwx]  S01whoopsie -> ../init.d/whoopsie
+rc4.d
+├── [lrwxrwxrwx]  S01acpid -> ../init.d/acpid
+├── [lrwxrwxrwx]  S01anacron -> ../init.d/anacron
+├── [lrwxrwxrwx]  S01apport -> ../init.d/apport
+├── [lrwxrwxrwx]  S01avahi-daemon -> ../init.d/avahi-daemon
+├── [lrwxrwxrwx]  S01bluetooth -> ../init.d/bluetooth
+├── [lrwxrwxrwx]  S01console-setup.sh -> ../init.d/console-setup.sh
+├── [lrwxrwxrwx]  S01cron -> ../init.d/cron
+├── [lrwxrwxrwx]  S01cups -> ../init.d/cups
+├── [lrwxrwxrwx]  S01cups-browsed -> ../init.d/cups-browsed
+├── [lrwxrwxrwx]  S01dbus -> ../init.d/dbus
+├── [lrwxrwxrwx]  S01gdm3 -> ../init.d/gdm3
+├── [lrwxrwxrwx]  S01grub-common -> ../init.d/grub-common
+├── [lrwxrwxrwx]  S01irqbalance -> ../init.d/irqbalance
+├── [lrwxrwxrwx]  S01kerneloops -> ../init.d/kerneloops
+├── [lrwxrwxrwx]  S01nmbd -> ../init.d/nmbd
+├── [lrwxrwxrwx]  S01plymouth -> ../init.d/plymouth
+├── [lrwxrwxrwx]  S01rsync -> ../init.d/rsync
+├── [lrwxrwxrwx]  S01rsyslog -> ../init.d/rsyslog
+├── [lrwxrwxrwx]  S01samba-ad-dc -> ../init.d/samba-ad-dc
+├── [lrwxrwxrwx]  S01saned -> ../init.d/saned
+├── [lrwxrwxrwx]  S01smbd -> ../init.d/smbd
+├── [lrwxrwxrwx]  S01speech-dispatcher -> ../init.d/speech-dispatcher
+├── [lrwxrwxrwx]  S01spice-vdagent -> ../init.d/spice-vdagent
+├── [lrwxrwxrwx]  S01unattended-upgrades -> ../init.d/unattended-upgrades
+├── [lrwxrwxrwx]  S01uuidd -> ../init.d/uuidd
+├── [lrwxrwxrwx]  S01virtualbox -> ../init.d/virtualbox
+└── [lrwxrwxrwx]  S01whoopsie -> ../init.d/whoopsie
+rc5.d
+├── [lrwxrwxrwx]  S01acpid -> ../init.d/acpid
+├── [lrwxrwxrwx]  S01anacron -> ../init.d/anacron
+├── [lrwxrwxrwx]  S01apport -> ../init.d/apport
+├── [lrwxrwxrwx]  S01avahi-daemon -> ../init.d/avahi-daemon
+├── [lrwxrwxrwx]  S01bluetooth -> ../init.d/bluetooth
+├── [lrwxrwxrwx]  S01console-setup.sh -> ../init.d/console-setup.sh
+├── [lrwxrwxrwx]  S01cron -> ../init.d/cron
+├── [lrwxrwxrwx]  S01cups -> ../init.d/cups
+├── [lrwxrwxrwx]  S01cups-browsed -> ../init.d/cups-browsed
+├── [lrwxrwxrwx]  S01dbus -> ../init.d/dbus
+├── [lrwxrwxrwx]  S01gdm3 -> ../init.d/gdm3
+├── [lrwxrwxrwx]  S01grub-common -> ../init.d/grub-common
+├── [lrwxrwxrwx]  S01irqbalance -> ../init.d/irqbalance
+├── [lrwxrwxrwx]  S01kerneloops -> ../init.d/kerneloops
+├── [lrwxrwxrwx]  S01nmbd -> ../init.d/nmbd
+├── [lrwxrwxrwx]  S01plymouth -> ../init.d/plymouth
+├── [lrwxrwxrwx]  S01rsync -> ../init.d/rsync
+├── [lrwxrwxrwx]  S01rsyslog -> ../init.d/rsyslog
+├── [lrwxrwxrwx]  S01samba-ad-dc -> ../init.d/samba-ad-dc
+├── [lrwxrwxrwx]  S01saned -> ../init.d/saned
+├── [lrwxrwxrwx]  S01smbd -> ../init.d/smbd
+├── [lrwxrwxrwx]  S01speech-dispatcher -> ../init.d/speech-dispatcher
+├── [lrwxrwxrwx]  S01spice-vdagent -> ../init.d/spice-vdagent
+├── [lrwxrwxrwx]  S01unattended-upgrades -> ../init.d/unattended-upgrades
+├── [lrwxrwxrwx]  S01uuidd -> ../init.d/uuidd
+├── [lrwxrwxrwx]  S01virtualbox -> ../init.d/virtualbox
+└── [lrwxrwxrwx]  S01whoopsie -> ../init.d/whoopsie
+rc6.d
+├── [lrwxrwxrwx]  K01alsa-utils -> ../init.d/alsa-utils
+├── [lrwxrwxrwx]  K01avahi-daemon -> ../init.d/avahi-daemon
+├── [lrwxrwxrwx]  K01bluetooth -> ../init.d/bluetooth
+├── [lrwxrwxrwx]  K01cups-browsed -> ../init.d/cups-browsed
+├── [lrwxrwxrwx]  K01gdm3 -> ../init.d/gdm3
+├── [lrwxrwxrwx]  K01irqbalance -> ../init.d/irqbalance
+├── [lrwxrwxrwx]  K01kerneloops -> ../init.d/kerneloops
+├── [lrwxrwxrwx]  K01networking -> ../init.d/networking
+├── [lrwxrwxrwx]  K01nmbd -> ../init.d/nmbd
+├── [lrwxrwxrwx]  K01plymouth -> ../init.d/plymouth
+├── [lrwxrwxrwx]  K01rsyslog -> ../init.d/rsyslog
+├── [lrwxrwxrwx]  K01samba-ad-dc -> ../init.d/samba-ad-dc
+├── [lrwxrwxrwx]  K01saned -> ../init.d/saned
+├── [lrwxrwxrwx]  K01smbd -> ../init.d/smbd
+├── [lrwxrwxrwx]  K01speech-dispatcher -> ../init.d/speech-dispatcher
+├── [lrwxrwxrwx]  K01spice-vdagent -> ../init.d/spice-vdagent
+├── [lrwxrwxrwx]  K01unattended-upgrades -> ../init.d/unattended-upgrades
+├── [lrwxrwxrwx]  K01uuidd -> ../init.d/uuidd
+└── [lrwxrwxrwx]  K01virtualbox -> ../init.d/virtualbox
+rcS.d
+├── [lrwxrwxrwx]  S01alsa-utils -> ../init.d/alsa-utils
+├── [lrwxrwxrwx]  S01apparmor -> ../init.d/apparmor
+├── [lrwxrwxrwx]  S01dns-clean -> ../init.d/dns-clean
+├── [lrwxrwxrwx]  S01keyboard-setup.sh -> ../init.d/keyboard-setup.sh
+├── [lrwxrwxrwx]  S01kmod -> ../init.d/kmod
+├── [lrwxrwxrwx]  S01networking -> ../init.d/networking
+├── [lrwxrwxrwx]  S01plymouth-log -> ../init.d/plymouth-log
+├── [lrwxrwxrwx]  S01pppd-dns -> ../init.d/pppd-dns
+├── [lrwxrwxrwx]  S01procps -> ../init.d/procps
+├── [lrwxrwxrwx]  S01udev -> ../init.d/udev
+├── [lrwxrwxrwx]  S01ufw -> ../init.d/ufw
+└── [lrwxrwxrwx]  S01x11-common -> ../init.d/x11-common
 
+0 directories, 218 files
 
-0	rc0.d/K01nmbd
-0	rc0.d/K01alsa-utils
-0	rc0.d/K01speech-dispatcher
-0	rc0.d/K01irqbalance
-0	rc0.d/K01virtualbox
-0	rc0.d/K01plymouth
-0	rc0.d/K01uuidd
-0	rc0.d/K01cups-browsed
-0	rc0.d/K01bluetooth
-0	rc0.d/K01kerneloops
-0	rc0.d/K01gdm3
-0	rc0.d/K01networking
-0	rc0.d/K01spice-vdagent
-0	rc0.d/K01smbd
-0	rc0.d/K01unattended-upgrades
-0	rc0.d/K01saned
-0	rc0.d/K01samba-ad-dc
-0	rc0.d/K01avahi-daemon
-0	rc0.d/K01rsyslog
-4	rc0.d
-
-
-0	rc1.d/K01nmbd
-0	rc1.d/K01whoopsie
-0	rc1.d/K01alsa-utils
-0	rc1.d/K01ufw
-0	rc1.d/K01speech-dispatcher
-0	rc1.d/K01irqbalance
-0	rc1.d/K01virtualbox
-0	rc1.d/K01uuidd
-0	rc1.d/K01cups-browsed
-0	rc1.d/K01bluetooth
-0	rc1.d/K01cups
-0	rc1.d/K01kerneloops
-0	rc1.d/K01gdm3
-0	rc1.d/K01spice-vdagent
-0	rc1.d/K01smbd
-0	rc1.d/K01saned
-0	rc1.d/K01samba-ad-dc
-0	rc1.d/K01avahi-daemon
-0	rc1.d/K01rsyslog
-4	rc1.d
-
-
-0	rc2.d/S01kerneloops
-0	rc2.d/S01smbd
-0	rc2.d/S01grub-common
-0	rc2.d/S01spice-vdagent
-0	rc2.d/S01dbus
-0	rc2.d/S01unattended-upgrades
-0	rc2.d/S01whoopsie
-0	rc2.d/S01irqbalance
-0	rc2.d/S01rsyslog
-0	rc2.d/S01avahi-daemon
-0	rc2.d/S01bluetooth
-0	rc2.d/S01cron
-0	rc2.d/S01plymouth
-0	rc2.d/S01virtualbox
-0	rc2.d/S01nmbd
-0	rc2.d/S01cups
-0	rc2.d/S01acpid
-0	rc2.d/S01rsync
-0	rc2.d/S01console-setup.sh
-0	rc2.d/S01saned
-0	rc2.d/S01uuidd
-0	rc2.d/S01samba-ad-dc
-0	rc2.d/S01apport
-0	rc2.d/S01anacron
-0	rc2.d/S01gdm3
-0	rc2.d/S01cups-browsed
-0	rc2.d/S01speech-dispatcher
-4	rc2.d
-
-
-0	rc3.d/S01kerneloops
-0	rc3.d/S01smbd
-0	rc3.d/S01grub-common
-0	rc3.d/S01spice-vdagent
-0	rc3.d/S01dbus
-0	rc3.d/S01unattended-upgrades
-0	rc3.d/S01whoopsie
-0	rc3.d/S01irqbalance
-0	rc3.d/S01rsyslog
-0	rc3.d/S01avahi-daemon
-0	rc3.d/S01bluetooth
-0	rc3.d/S01cron
-0	rc3.d/S01plymouth
-0	rc3.d/S01virtualbox
-0	rc3.d/S01nmbd
-0	rc3.d/S01cups
-0	rc3.d/S01acpid
-0	rc3.d/S01rsync
-0	rc3.d/S01console-setup.sh
-0	rc3.d/S01saned
-0	rc3.d/S01uuidd
-0	rc3.d/S01samba-ad-dc
-0	rc3.d/S01apport
-0	rc3.d/S01anacron
-0	rc3.d/S01gdm3
-0	rc3.d/S01cups-browsed
-0	rc3.d/S01speech-dispatcher
-4	rc3.d
-
-
-0	rc4.d/S01kerneloops
-0	rc4.d/S01smbd
-0	rc4.d/S01grub-common
-0	rc4.d/S01spice-vdagent
-0	rc4.d/S01dbus
-0	rc4.d/S01unattended-upgrades
-0	rc4.d/S01whoopsie
-0	rc4.d/S01irqbalance
-0	rc4.d/S01rsyslog
-0	rc4.d/S01avahi-daemon
-0	rc4.d/S01bluetooth
-0	rc4.d/S01cron
-0	rc4.d/S01plymouth
-0	rc4.d/S01virtualbox
-0	rc4.d/S01nmbd
-0	rc4.d/S01cups
-0	rc4.d/S01acpid
-0	rc4.d/S01rsync
-0	rc4.d/S01console-setup.sh
-0	rc4.d/S01saned
-0	rc4.d/S01uuidd
-0	rc4.d/S01samba-ad-dc
-0	rc4.d/S01apport
-0	rc4.d/S01anacron
-0	rc4.d/S01gdm3
-0	rc4.d/S01cups-browsed
-0	rc4.d/S01speech-dispatcher
-4	rc4.d
-
-
-0	rc5.d/S01kerneloops
-0	rc5.d/S01smbd
-0	rc5.d/S01grub-common
-0	rc5.d/S01spice-vdagent
-0	rc5.d/S01dbus
-0	rc5.d/S01unattended-upgrades
-0	rc5.d/S01whoopsie
-0	rc5.d/S01irqbalance
-0	rc5.d/S01rsyslog
-0	rc5.d/S01avahi-daemon
-0	rc5.d/S01bluetooth
-0	rc5.d/S01cron
-0	rc5.d/S01plymouth
-0	rc5.d/S01virtualbox
-0	rc5.d/S01nmbd
-0	rc5.d/S01cups
-0	rc5.d/S01acpid
-0	rc5.d/S01rsync
-0	rc5.d/S01console-setup.sh
-0	rc5.d/S01saned
-0	rc5.d/S01uuidd
-0	rc5.d/S01samba-ad-dc
-0	rc5.d/S01apport
-0	rc5.d/S01anacron
-0	rc5.d/S01gdm3
-0	rc5.d/S01cups-browsed
-0	rc5.d/S01speech-dispatcher
-4	rc5.d
-
-
-0	rc6.d/K01nmbd
-0	rc6.d/K01alsa-utils
-0	rc6.d/K01speech-dispatcher
-0	rc6.d/K01irqbalance
-0	rc6.d/K01virtualbox
-0	rc6.d/K01plymouth
-0	rc6.d/K01uuidd
-0	rc6.d/K01cups-browsed
-0	rc6.d/K01bluetooth
-0	rc6.d/K01kerneloops
-0	rc6.d/K01gdm3
-0	rc6.d/K01networking
-0	rc6.d/K01spice-vdagent
-0	rc6.d/K01smbd
-0	rc6.d/K01unattended-upgrades
-0	rc6.d/K01saned
-0	rc6.d/K01samba-ad-dc
-0	rc6.d/K01avahi-daemon
-0	rc6.d/K01rsyslog
-4	rc6.d
-
-
-0	rcS.d/S01ufw
-0	rcS.d/S01apparmor
-0	rcS.d/S01pppd-dns
-0	rcS.d/S01udev
-0	rcS.d/S01kmod
-0	rcS.d/S01plymouth-log
-0	rcS.d/S01keyboard-setup.sh
-0	rcS.d/S01networking
-0	rcS.d/S01x11-common
-0	rcS.d/S01dns-clean
-0	rcS.d/S01alsa-utils
-0	rcS.d/S01procps
-4	rcS.d
 
 ```
 
