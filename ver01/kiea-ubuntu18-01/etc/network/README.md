@@ -10,6 +10,7 @@ systemctl
 	$ sudo systemctl restart NetworkManager.service
 service
 	$ sudo service network-manager restart
+	$ sudo service networking restart
 nmcli
 	$ sudo nmcli networking off
 	$ sudo nmcli networking on
@@ -20,6 +21,7 @@ System V init
 ifup/ifdown
 	$ sudo ifdown -a
 	$ sudo ifup -a
+	$ sudo ifdown eth0 && sudo ifup eth0
 ```
 
 firewall-cmd
