@@ -22,6 +22,16 @@ ifup/ifdown
 	$ sudo ifup -a
 ```
 
+firewall-cmd
+------------
+```
+* samba port
+$ sudo firewall-cmd --permanent --add-port=139/tcp
+$ sudo firewall-cmd --permanent --add-port=445/tcp
+
+$ sudo firewall-cmd --reload
+```
+
 
 
 References
