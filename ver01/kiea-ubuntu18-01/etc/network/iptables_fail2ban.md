@@ -269,7 +269,7 @@ fail2ban
 		| `- IP list: 192.168.15.196 
 		`- Total banned: 1
 
-	$ ab -n 1000 -c 20 http://192.168.2.15:8080/
+	$ ab -n 1000 -c 20 http://192.168.2.15:8080/        <--- DDOS attack
 	
 	$ tail -f /var/log/fail2ban.log
 
