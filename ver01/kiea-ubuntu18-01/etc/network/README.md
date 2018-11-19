@@ -100,6 +100,64 @@ $ ip addr
 
 ```
 
+static ip setting on ubuntu 18.04 using netplan
+-----------------------------------------------
+
+```
+- VirtualBox에서 네트워크 > 어댑터 추가한다.
+- NetworkManager : 이 렌더러를 사용하는 경우에는 X Window 환경에서만 사용
+- networkd       : X Window 환경이 아닌경우
+
+$ sudo ls -al /etc/netplan/*.yaml
+
+$ sudo ifconfig -a
+
+	lo: .....
+	
+	enp0s3: .....(어댑터 1)
+	
+	enp0s8: .....(어댑터 2)
+	
+	
+< enp0s8 을 사용한다. >
+
+$ sudo cat /etc/netplan/50-cloud-init.yaml
+
+	# This file is generated from information provided by
+	# the datasource.  Changes to it will not persist across an instance.
+	# To disable cloud-init's network configuration capabilities, write a file
+	# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+	# network: {config: disabled}
+	network:  
+		ethernets:
+			enp0s3:
+				addresses: []
+				dhcp4: true
+				optional: true
+		version: 2
+
+$ sudo vi /etc/netplan/01-netcfg.yaml
+
+	# This file describes the network interfaces available on your system
+	# For more information, see netplan(5).
+	network:  
+		version: 2
+		renderer: networkd
+		ethernets:
+			enp0s8:
+				dhcp4: no
+				dhcp6: no
+				addresses: [192.168.56.100/24]
+				gateway4: 192.168.56.1
+				nameservers:
+					addresses: [8.8.8.8,8.8.4.4]
+
+$ sudo netplan apply
+$ sudo netplan --debug apply
+
+$ ifconfig -a
+```
+
 ufw (firewall on ubuntu)
 --------
 ```
