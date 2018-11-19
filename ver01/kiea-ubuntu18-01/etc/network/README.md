@@ -23,6 +23,23 @@ ifup/ifdown
 	$ sudo ifup -a
 	$ sudo ifdown eth0 && sudo ifup eth0
 ```
+```
+# cat /etc/network/interfaces
+
+# cat /etc/resolv.conf 
+
+# ls -l /etc/resolv.conf 
+
+# route -n
+
+# ifconfig
+
+# nm-tool 
+
+# nslookup ubuntu.com
+
+# dig ubuntuforums.org
+```
 
 firewall-cmd
 ------------
