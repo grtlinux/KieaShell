@@ -130,6 +130,9 @@ iptables
 
 ----------
 
+fail2ban
+========
+
 - [fail2ban](https://blog.rapid7.com/2017/02/13/how-to-protect-ssh-and-apache-using-fail2ban-on-ubuntu-linux/ "")
 
 ```
