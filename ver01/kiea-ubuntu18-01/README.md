@@ -55,6 +55,8 @@ Service
 # chmod 0755 /etc/init.d/test-service
 # update-rc.d test-service defaults
 
+# update-rc.d -f test-service remove
+
 ```
 
 
